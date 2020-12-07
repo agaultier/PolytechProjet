@@ -68,7 +68,7 @@
   <!-- Content section -->
   <section class="py-5">
     <div class="container">
-      <h1>Electro test Github</h1>
+      <h1>Electro</h1>
       <p class="lead">Sur cette page nous parlerons d'Electro, un style nous permettant de danser!</p>
       <p>Comme vous pouvez le voir, le thème principal est la musique. Cette page a été faite pour vous transmettre notre passion pour la musique et vous faire découvrir des groupes peu connus.</p>
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/305885683&color=%23008c8c&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/roman-zolotukhin" title="Roman Zolotukhin" target="_blank" style="color: #cccccc; text-decoration: none;">Roman Zolotukhin</a> � <a href="https://soundcloud.com/roman-zolotukhin/sets/electro" title="electro" target="_blank" style="color: #cccccc; text-decoration: none;">electro</a></div>    </div>
