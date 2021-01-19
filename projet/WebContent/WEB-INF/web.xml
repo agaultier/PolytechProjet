@@ -9,4 +9,23 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-</web-app>
+
+  <servlet>
+  <servlet-name>ok</servlet-name>
+  <servlet-class>fr.polytech.Controller_musique</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ok</servlet-name>
+  <url-pattern>/recherche</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  <servlet-name>next</servlet-name>
+  <servlet-class>fr.polytech.Controller_account</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>next</servlet-name>
+  <url-pattern>/accueil</url-pattern>
+  </servlet-mapping>
+  
+  </web-app>

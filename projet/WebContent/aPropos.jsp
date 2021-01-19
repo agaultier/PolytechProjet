@@ -34,7 +34,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">A propos de nous
+            <a class="nav-link" href="aPropos.jsp">A propos de nous
                <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -53,7 +53,8 @@
         </div>
       </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recherche</a>
+            <a class="nav-link" href="recherche">Recherche/Liste artistes
+            </a>
           </li>
         </ul>
       </div>

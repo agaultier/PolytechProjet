@@ -19,6 +19,14 @@
   <url-pattern>/dao</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  <servlet-name>ok2</servlet-name>
+  <servlet-class>fr.polytech.Controller2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ok2</servlet-name>
+  <url-pattern>/dao2</url-pattern>
+  </servlet-mapping>
   
   
 </web-app>
