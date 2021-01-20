@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -83,24 +83,29 @@ public class ConnexionAccount {
 			return false;
 		}
 		}
-	public String connectAccount (HttpServletRequest request) {
+	public boolean connectAccount (HttpServletRequest request) {
 		ResultSet resultSet = null;
 		this.seConnecter();
 		String passwordCompare = null;
 		String id = request.getParameter("login");
 		String pass = request.getParameter("pass");
 		try {
-			PreparedStatement preparedStatement =this.connection.prepareStatement("SELECT password FROM `password` WHERE identifiant LIKE ? ");
-			preparedStatement.setString(1,id);
-			resultSet = preparedStatement.executeQuery();
-			passwordCompare = resultSet.getString("password");
+			Statement statement =connection.createStatement();	
+			resultSet = statement.executeQuery("SELECT * FROM `password`");
+			while(resultSet.next()) {
+				if(resultSet.getString("identifiant").equals(id)) {
+					if(resultSet.getString("password").equals(pass)) {
+						return true;
+					}
+				}
+			}
 			
 			}catch (SQLException e) {
 			// TODO Auto-generated catch block
 				e.getStackTrace();
 				
 		}
-		return passwordCompare;
+		return false;
 		}
 
 public boolean isConnexion() {

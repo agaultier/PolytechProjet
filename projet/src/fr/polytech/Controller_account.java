@@ -31,14 +31,22 @@ public class Controller_account extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				HttpSession session = request.getSession(true);
+				if(request.getParameter("login")!=null) {
+					HttpSession session = request.getSession(true);
+				
 		        // Recuperer les identifiants et les stocker dans la variable de session
 		        String Pseudonyme = request.getParameter("login");
-		        
+		        session.setAttribute(Pseudonyme, "login");
 		        ConnexionAccount connexionAccount= new ConnexionAccount();		
-		        session.setAttribute(Pseudonyme, connexionAccount.connectAccount(request));
-		  
 		        
+		        //Utilisation et redirectiondes identifiants dans l'autre Servlet
+		        if(connexionAccount.connectAccount(request)) {
+		        getServletContext().getRequestDispatcher("/rock.jsp").forward(request, response);
+		        }
+		        }else{
+		            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		            }
+				
 	}
 
 	/**

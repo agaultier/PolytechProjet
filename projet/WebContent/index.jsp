@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-    <% 
-String Pseudonyme = request.getParameter("login");    
-session.getAttribute("login");
- %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +56,7 @@ session.getAttribute("login");
       <p class="lead">Bienvenu à tous, voici le début de notre page.
       </p>
       <p>Comme vous pouvez le voir, le thème principal est la musique. Cette page a été faite pour vous transmettre notre passion pour la musique et vous faire découvrir des groupes peu connus.</p>
- <p>Veuillez vous connecter : <%=Pseudonyme%></p>
+ <p>Veuillez vous connecter : </p>
 
  <form method="GET" name="Form" action="accueil"
               style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
@@ -85,7 +81,7 @@ session.getAttribute("login");
     <div class="container">
       <h1>Création de compte</h1>
      
-      <form action="accueil" method ="post">
+<form action="accueil" method ="post">
 
 <p> <label id ="idCreate"> Identifiant :</label>
 <input type = "text" id ="idCreate" name="idCreate">
