@@ -63,7 +63,9 @@ public class Controller_musique extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//on définit un objet de la classe métier ... on fait appel a la méthode ajouterUnEtudiant 
-		
+		if(request.getParameter("genre")!=null) {
+			
+		}
 		
 		
 		doGet(request, response);

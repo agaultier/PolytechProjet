@@ -115,6 +115,19 @@
   <section class="py-5">
     <div class="container">
       <h1>Prochaines implÃ©mentations</h1>
+      
+ <form method="post" name="Form" action="recherche"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Formulaire HTML</h2>
+  <p style="text-align:center;">Genre : <input type="text" name="genre"  /></p>
+  <p style="text-align:center;">Artiste : <input type="text" name="artiste" /></p>
+ <p style="text-align:center;">Annee : <input type="text" name="annee"  /></p>
+  <p style="text-align:center;">Identifiant : <input type="text" name="id" /></p>
+ 
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
       <p class="lead">Nous allons essayer d'implÃ©menter ces nouvelles fonctions</p>
       <ul class = "prems">
       
