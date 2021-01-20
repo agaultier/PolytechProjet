@@ -11,7 +11,7 @@ private boolean connexion;
 public void access(HttpServletRequest request) {
 	String login = request.getParameter("login");
 	String pass = request.getParameter("pass");
-	if (pass.equals((login+"321"))){
+	if (pass.equals((login))){
 		this.connexion=true;
 	}else {
 		this.connexion=false;

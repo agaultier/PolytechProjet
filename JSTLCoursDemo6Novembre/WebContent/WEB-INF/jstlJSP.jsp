@@ -131,7 +131,7 @@ On voit que le test marche
 
 
 <!-- Qu'est ce que form action -->
-<form action="JstlDemo" method="post">
+<form action="jstlDemo" method="post">
 <label for="login"> login: </label>
 <input type ="text" id="login" name="login"/>
 <input type="submit"/>

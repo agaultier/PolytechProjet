@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
+
+import javax.servlet.http.HttpServletRequest;
+
 
 //ici je défini la couche métier de notre application
 
@@ -15,7 +16,9 @@ public class ConnexionAccount {
 	//cette classe contient une seule méthode qui permet de récupérer la liste d'étudiants.
 	
 	private Connection connection;
-	
+	private boolean connexion = true;
+
+
 	
 	public void seConnecter() {
 		try {
@@ -70,6 +73,39 @@ public class ConnexionAccount {
 			e.printStackTrace();
 		}
 	}
+
+	public boolean access(HttpServletRequest request) {
+		String login = request.getParameter("login");
+		String pass = request.getParameter("pass");
+		if (pass.equals((login))){
+			return true;
+		}else {
+			return false;
+		}
+		}
+	public String connectAccount (HttpServletRequest request) {
+		ResultSet resultSet = null;
+		this.seConnecter();
+		String passwordCompare = null;
+		String id = request.getParameter("login");
+		String pass = request.getParameter("pass");
+		try {
+			PreparedStatement preparedStatement =this.connection.prepareStatement("SELECT password FROM `password` WHERE identifiant LIKE ? ");
+			preparedStatement.setString(1,id);
+			resultSet = preparedStatement.executeQuery();
+			passwordCompare = resultSet.getString("password");
+			
+			}catch (SQLException e) {
+			// TODO Auto-generated catch block
+				e.getStackTrace();
+				
+		}
+		return passwordCompare;
+		}
+
+public boolean isConnexion() {
+	return true;
+}
 	/*public void supprimerUnEtudiant (Account account) {
 		this.seConnecter();
 		try {

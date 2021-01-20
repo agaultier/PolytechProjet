@@ -16,7 +16,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>JstlDemo.java</servlet-name>
-    <url-pattern>/jstlMap</url-pattern>
+    <url-pattern>/jstlDemo</url-pattern>
   </servlet-mapping>
   
   

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    <% 
+String Pseudonyme = request.getParameter("login");    
+session.getAttribute("login");
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,25 +60,18 @@
       <p class="lead">Bienvenu à tous, voici le début de notre page.
       </p>
       <p>Comme vous pouvez le voir, le thème principal est la musique. Cette page a été faite pour vous transmettre notre passion pour la musique et vous faire découvrir des groupes peu connus.</p>
- <p>Veuillez vous connecter : </p>
+ <p>Veuillez vous connecter : <%=Pseudonyme%></p>
 
-
-<form action="" method ="post">
-
-<p> <label id ="idConnect"> Identifiant :</label>
-<input type = "text" id ="idConnection" name="idConnection">
-</p>
-
-
-
-<p><label id = "PasswordConnect"> Mot de passe :</label>
-<input type = "text" id="PasswordConnect" name="PasswordConnect">
-</p>
-
-	
-<input type="submit"/>
-</form>
-
+ <form method="GET" name="Form" action="accueil"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Formulaire HTML</h2>
+  <p style="text-align:center;">Pseudonyme : <input type="text" name="login"  /></p>
+  <p style="text-align:center;">Mot de passe : <input type="password" name="pass" /></p>
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
+ 
    </div>
   </section>
   <!-- Image element - set the background image for the header in the line below -->
@@ -87,7 +85,7 @@
     <div class="container">
       <h1>Création de compte</h1>
      
-      <form action="" method ="post">
+      <form action="accueil" method ="post">
 
 <p> <label id ="idCreate"> Identifiant :</label>
 <input type = "text" id ="idCreate" name="idCreate">
@@ -95,8 +93,8 @@
 
 
 
-<p><label id = "PasswordCreate"> Mot de passe :</label>
-<input type = "text" id="PasswordCreate" name="PasswordCreate">
+<p><label id = "passwordCreate"> Mot de passe :</label>
+<input type = "text" id="passwordCreate" name="passwordCreate">
 </p>
 	
 <input type="submit"/>
