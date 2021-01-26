@@ -1,6 +1,10 @@
 package fr.polytech.connexion;
 
 import java.sql.Connection;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,15 +47,29 @@ public class ConnexionAccount {
 	public void setConnection(Connection connection) {
 		this.connection = connection;
 	}
-	public void createAccount (Account account) {
+	public void createAccount (Account account) throws NoSuchAlgorithmException {
 		this.seConnecter();
 		//faille d'injection SQL
 		try {
-			PreparedStatement preparedStatement =this.connection.prepareStatement("INSERT INTO `password`(`identifiant`, `password`) VALUES (?,?);");
+			PreparedStatement preparedStatement;
+			preparedStatement = this.connection.prepareStatement("INSERT INTO `password`(`identifiant`, `password`) VALUES (?,?);");			
+			
+			
+			String plaintext = account.getPassword();
+			
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.reset();
+			m.update(plaintext.getBytes());
+			byte[] digest = m.digest();
+			BigInteger bigInt = new BigInteger(1,digest);
+			String hashtext = bigInt.toString(16);
+			while(hashtext.length() < 32 ){
+			  hashtext = "0"+hashtext;
+			}
 			preparedStatement.setString(1, account.getIdentifiant());
-			preparedStatement.setString(2, account.getPassword());
-			//mettre a jour et executer la requête
+			preparedStatement.setString(2, hashtext);
 			preparedStatement.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,42 +77,60 @@ public class ConnexionAccount {
 		}
 		
 	}
-	public void modifyAccount (Account account) {
+	
+
+	
+	
+	public void deleteAccount (Account account) throws NoSuchAlgorithmException {
 		this.seConnecter();
+		
 		try {
-			PreparedStatement preparedStatement = this.connection.prepareStatement("UPDATE `password` SET `password`=? WHERE identifiant=? ;");
-			preparedStatement.setString(2, account.getIdentifiant());
-			preparedStatement.setString(1, account.getPassword());
+			PreparedStatement preparedStatement = this.connection.prepareStatement("DELETE FROM `password` WHERE identifiant = ? AND password = ?  ;");
+			preparedStatement.setString(1,account.getIdentifiant());			
+
+			String plaintext = account.getPassword();
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.reset();
+			m.update(plaintext.getBytes());
+			byte[] digest = m.digest();
+			BigInteger bigInt = new BigInteger(1,digest);
+			String hashtext = bigInt.toString(16);
+			while(hashtext.length() < 32 ){
+			  hashtext = "0"+hashtext;
+			}
+			preparedStatement.setString(2,hashtext);
 			preparedStatement.executeUpdate();
 			
-
+		
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
-
-	public boolean access(HttpServletRequest request) {
-		String login = request.getParameter("login");
-		String pass = request.getParameter("pass");
-		if (pass.equals((login))){
-			return true;
-		}else {
-			return false;
-		}
-		}
-	public boolean connectAccount (HttpServletRequest request) {
+	
+	public boolean connectAccount (HttpServletRequest request) throws NoSuchAlgorithmException {
 		ResultSet resultSet = null;
 		this.seConnecter();
 		String passwordCompare = null;
 		String id = request.getParameter("login");
-		String pass = request.getParameter("pass");
+		String plaintext = request.getParameter("pass");
+		MessageDigest m = MessageDigest.getInstance("MD5");
+		m.reset();
+		m.update(plaintext.getBytes());
+		byte[] digest = m.digest();
+		BigInteger bigInt = new BigInteger(1,digest);
+		String hashtext = bigInt.toString(16);
+		while(hashtext.length() < 32 ){
+		  hashtext = "0"+hashtext;
+		}
 		try {
 			Statement statement =connection.createStatement();	
 			resultSet = statement.executeQuery("SELECT * FROM `password`");
 			while(resultSet.next()) {
 				if(resultSet.getString("identifiant").equals(id)) {
-					if(resultSet.getString("password").equals(pass)) {
+					if(resultSet.getString("password").equals(hashtext)) {
 						return true;
 					}
 				}
@@ -111,21 +147,6 @@ public class ConnexionAccount {
 public boolean isConnexion() {
 	return true;
 }
-	/*public void supprimerUnEtudiant (Account account) {
-		this.seConnecter();
-		try {
-			PreparedStatement preparedStatement = this.connection.prepareStatement("DELETE FROM `etudiant` WHERE identifiant = ? ;");
-			preparedStatement.setString(1,account.getIdentifiant());			
-			
-			preparedStatement.executeUpdate();
-			
-		
-		
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}*/
+	
 	
 }

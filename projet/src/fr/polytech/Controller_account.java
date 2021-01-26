@@ -1,6 +1,8 @@
 package fr.polytech;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,11 +42,22 @@ public class Controller_account extends HttpServlet {
 		        ConnexionAccount connexionAccount= new ConnexionAccount();		
 		        
 		        //Utilisation et redirectiondes identifiants dans l'autre Servlet
-		        if(connexionAccount.connectAccount(request)) {
-		        getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
-		        }else{
-		            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-		            }
+		        try {
+					if(connexionAccount.connectAccount(request)) {
+					getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
+					}else{
+					    getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+					    }
+				} catch (NoSuchAlgorithmException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				
@@ -62,7 +75,26 @@ public class Controller_account extends HttpServlet {
 			account.setIdentifiant(request.getParameter("idCreate"));
 			account.setPassword(request.getParameter("passwordCreate"));
 		ConnexionAccount newAccount= new ConnexionAccount();
-		newAccount.createAccount(account);
+			try {
+				newAccount.createAccount(account);
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
+		if (request.getParameter("idSuppr")!=null){
+			Account account = new Account();
+		
+			account.setIdentifiant(request.getParameter("idSuppr"));
+			account.setPassword(request.getParameter("passwordSuppr"));
+		ConnexionAccount DelAccount= new ConnexionAccount();
+		try {
+			DelAccount.deleteAccount(account);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 		
 		}
 		

@@ -81,20 +81,30 @@
     <div class="container">
       <h1>Création de compte</h1>
      
-<form action="home" method ="post">
-
-<p> <label id ="idCreate"> Identifiant :</label>
-<input type = "text" id ="idCreate" name="idCreate">
-</p>
-
-
-
-<p><label id = "passwordCreate"> Mot de passe :</label>
-<input type = "text" id="passwordCreate" name="passwordCreate">
-</p>
-	
-<input type="submit"/>
-</form>
+          
+ <form method="post" name="Form" action="home"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Creation compte</h2>
+  <p style="text-align:center;">Identifiant : <input type="text" name="idCreate"  /></p>
+  <p style="text-align:center;">Mot de passe : <input type="password" name="passwordCreate" /></p>
+ 
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
+ 
+  
+ 
+  <form method="post" name="Form" action="home"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Suppression	 compte</h2>
+  <p style="text-align:center;">Identifiant : <input type="text" name="idSuppr"  /></p>
+  <p style="text-align:center;">Mot de passe : <input type="password" name="passwordSuppr" /></p>
+ 
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
 
 
     </div>
