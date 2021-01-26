@@ -113,7 +113,6 @@ public class ConnexionAccount {
 	public boolean connectAccount (HttpServletRequest request) throws NoSuchAlgorithmException {
 		ResultSet resultSet = null;
 		this.seConnecter();
-		String passwordCompare = null;
 		String id = request.getParameter("login");
 		String plaintext = request.getParameter("pass");
 		MessageDigest m = MessageDigest.getInstance("MD5");
