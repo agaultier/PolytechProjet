@@ -38,17 +38,7 @@ public class Controller_musique extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		/*java.util.List<Etudiant> etudiants = new ArrayList <Etudiant>();
-		etudiants.add(new Etudiant(1,"A","B"));
-		etudiants.add(new Etudiant(1,"C","D"));
-		etudiants.add(new Etudiant(1,"E","F"));
-		etudiants.add(new Etudiant(1,"G","H"));
-		*/
-		//créer un objet de la classe métier
-		//dans cette classe étudiant, on va avoir une méthode qui permet de renvoyer
-		// une liste d'étudiants (on renvoit un objet métier)
 		
-		//request.setAttribute("etudiants", etudiants);
 		
 		Data_Musique musiquesListe = new Data_Musique();
 		ArrayList<Musique> ets = musiquesListe.afficherToutesLesMusiques();
@@ -63,10 +53,39 @@ public class Controller_musique extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//on définit un objet de la classe métier ... on fait appel a la méthode ajouterUnEtudiant 
-		if(request.getParameter("genre")!=null) {
+	
+		if (request.getParameter("genre")!=null){
+			Musique musique = new Musique();
+			musique.setAnnee(Integer.parseInt(request.getParameter("annee")));
+			musique.setArtiste(request.getParameter("artiste"));
+			musique.setGenre(request.getParameter("genre"));
+			musique.setIdentifiant(Integer.parseInt(request.getParameter("id")));
+		
+		
+		Data_Musique musiquesListe = new Data_Musique();
+		musiquesListe.ajouterUneMusique(musique);
+		}
+		if (request.getParameter("idSuppr")!=null) {
+			Musique musique = new Musique();
+			musique.setIdentifiant(Integer.parseInt(request.getParameter("idSuppr")));
 			
+			Data_Musique musiquesListe = new Data_Musique();
+			musiquesListe.supprimerUneMusique(musique);
 		}
 		
+		if (request.getParameter("artisteModif")!=null) {
+			Musique musique = new Musique();
+			musique.setAnnee(Integer.parseInt(request.getParameter("anneeModif")));
+			musique.setArtiste(request.getParameter("artisteModif"));
+			musique.setGenre(request.getParameter("genreModif"));
+			musique.setIdentifiant(Integer.parseInt(request.getParameter("idModif")));
+		
+		
+			
+			Data_Musique musiquesListe = new Data_Musique();
+			musiquesListe.modifierUneMusique(musique);
+			}
+			
 		
 		doGet(request, response);
 	}

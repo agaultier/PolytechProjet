@@ -26,14 +26,14 @@
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.jsp">En avant la musique</a>
+      <a class="navbar-brand" href="accueil.jsp">En avant la musique</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
-            <a class="nav-link" href="index.jsp">Home
+            <a class="nav-link" href="accueil.jsp">Home
            
             </a>
           </li>
@@ -50,7 +50,7 @@
           <a class="dropdown-item active" href="rap.jsp">Rap</a>
           <a class="dropdown-item" href="electro.jsp">Electro</a>
           <a class="dropdown-item" href="pop.jsp">Pop</a>
-          <a class="dropdown-item" href="variete.jsp">Variété Française</a>
+          <a class="dropdown-item" href="variete.jsp">Variete Francaise</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item " href="autre.jsp">Autre</a>
         </div>
@@ -74,7 +74,8 @@
   <section class="py-5">
     <div class="container">
       <h1>Recherche/Liste artistes</h1>
-      <p class="lead">Sur cette page vous pouvez rechercher des artistes en particulier en fonction des différentes caractéristiques et vous avez accès à la liste entière des artistes</p>
+      <p class="lead">Sur cette page vous pouvez rechercher des artistes en particulier en fonction des 
+      differentes caracteristiques et vous avez acces a la liste entiere des artistes</p>
     
 
 <table class="table table-striped table-bordered table-hover ">
@@ -90,7 +91,7 @@
     <tr>
       
         
-<c:forEach items="${resultat}" begin ="0" end = "2" var="musique">
+<c:forEach items="${resultat}"  var="musique">
 	<tr class="ÃÂ${rowStyle}">
 	<th scope="row">${musique.identifiant}</th>
           <td>${musique.artiste}</td>
@@ -114,12 +115,12 @@
   <!-- Content section -->
   <section class="py-5">
     <div class="container">
-      <h1>Prochaines implÃ©mentations</h1>
+      <h1>Ajoutez/Modifiez/Supprimez vos groupes preferes</h1>
       
  <form method="post" name="Form" action="recherche"
               style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
     
-  <h2 style="text-align:center;color:black;background-color:wheat;">Formulaire HTML</h2>
+  <h2 style="text-align:center;color:black;background-color:wheat;">Ajout d'un groupe</h2>
   <p style="text-align:center;">Genre : <input type="text" name="genre"  /></p>
   <p style="text-align:center;">Artiste : <input type="text" name="artiste" /></p>
  <p style="text-align:center;">Annee : <input type="text" name="annee"  /></p>
@@ -128,13 +129,32 @@
   <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
   
  </form>
-      <p class="lead">Nous allons essayer d'implÃ©menter ces nouvelles fonctions</p>
-      <ul class = "prems">
+ 
+ <form method="post" name="Form" action="recherche"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Modification d'un groupe</h2>
+  <p style="text-align:center;">Genre : <input type="text" name="genreModif"  /></p>
+  <p style="text-align:center;">Artiste : <input type="text" name="artisteModif" /></p>
+ <p style="text-align:center;">Annee : <input type="text" name="anneeModif"  /></p>
+  <p style="text-align:center;">Identifiant : <input type="text" name="idModif" /></p>
+ 
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
+ 
+ <form method="post" name="Form" action="recherche"
+              style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
+    
+  <h2 style="text-align:center;color:black;background-color:wheat;">Suppression d'un groupe</h2>
+  <p style="text-align:center;">Identifiant : <input type="text" name="idSuppr" /></p>
+ 
+  <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
+  
+ </form>
       
-  <li>Des nouvelles pages pour parler des diffÃ©rents styles</li>
-  <li>Une fonction de recherche parmis une base de donnÃ©es</li>
-  <li>Un moyen d'Ã©couter de la musique</li>
-  </ul>
+      
+      
     </div>
   </section>
 

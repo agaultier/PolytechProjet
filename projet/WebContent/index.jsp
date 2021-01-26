@@ -53,16 +53,16 @@
   <section class="py-5">
     <div class="container">
       <h1>Musique maestro !</h1>
-      <p class="lead">Bienvenu à tous, voici le début de notre page.
+      <p class="lead">Bienvenue à tous, voici le début de notre page.
       </p>
       <p>Comme vous pouvez le voir, le thème principal est la musique. Cette page a été faite pour vous transmettre notre passion pour la musique et vous faire découvrir des groupes peu connus.</p>
  <p>Veuillez vous connecter : </p>
 
- <form method="GET" name="Form" action="accueil"
+ <form method="GET" name="Form" action="home"
               style="width:50%;margin:auto;background-color:whitesmoke;padding-bottom:15px;">
     
-  <h2 style="text-align:center;color:black;background-color:wheat;">Formulaire HTML</h2>
-  <p style="text-align:center;">Pseudonyme : <input type="text" name="login"  /></p>
+  <h2 style="text-align:center;color:black;background-color:wheat;">Connexion</h2>
+  <p style="text-align:center;">Identifiant : <input type="text" name="login"  /></p>
   <p style="text-align:center;">Mot de passe : <input type="password" name="pass" /></p>
   <p style="text-align:center;width:50%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
   
@@ -81,7 +81,7 @@
     <div class="container">
       <h1>Création de compte</h1>
      
-<form action="accueil" method ="post">
+<form action="home" method ="post">
 
 <p> <label id ="idCreate"> Identifiant :</label>
 <input type = "text" id ="idCreate" name="idCreate">

@@ -23,14 +23,14 @@
  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.jsp">En avant la musique</a>
+      <a class="navbar-brand" href="accueil.jsp">En avant la musique</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item ">
-            <a class="nav-link" href="index.jsp">Home
+            <a class="nav-link" href="accueil.jsp">Home
               
             </a>
           </li>
@@ -85,13 +85,13 @@
   <!-- Content section -->
   <section class="py-5">
     <div class="container">
-      <h1>Prochaines implémentations</h1>
-      <p class="lead">Nous allons essayer d'implémenter ces nouvelles fonctions</p>
+      <h1>Prochaines implementations</h1>
+      <p class="lead">Nous allons essayer d'implementer ces nouvelles fonctions</p>
       <ul class = "prems">
       
-  <li>Des nouvelles pages pour parler des différents styles</li>
-  <li>Une fonction de recherche parmis une base de données</li>
-  <li>Un moyen d'écouter de la musique</li>
+  <li>Des nouvelles pages pour parler des differents styles</li>
+  <li>Une fonction de recherche parmis une base de donnees</li>
+  <li>Un moyen d'Ecouter de la musique</li>
   </ul>
     </div>
   </section>

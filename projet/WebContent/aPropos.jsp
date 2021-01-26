@@ -23,14 +23,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.jsp">En avant la musique</a>
+      <a class="navbar-brand" href="accueil.jsp">En avant la musique</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.jsp">Home
+            <a class="nav-link" href="accueil.jsp">Home
             </a>
           </li>
           <li class="nav-item active">
@@ -85,7 +85,8 @@
   <div class="col-8">
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade " id="list-antoine" role="tabpanel" aria-labelledby="list-antoine-list">Antoine a fait de la musique pendant une dizaine d'année et a aussi fait partie d'un groupe</div>
-      <div class="tab-pane fade" id="list-gael" role="tabpanel" aria-labelledby="list-gael-list">Gaël lui est un DJ renommé connu sous le nom de GATZ</div>
+      <div class="tab-pane fade" id="list-gael" role="tabpanel" aria-labelledby="list-gael-list"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/855515455&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/gatz_music" title="GATZ" target="_blank" style="color: #cccccc; text-decoration: none;">GATZ</a> · <a href="https://soundcloud.com/gatz_music/brooks-kshmr-ft-tzar-voices-gatz-remix-remix-contest" title="Brooks &amp; KSHMR ft. TZAR - Voices (GATZ Remix) | Remix Contest" target="_blank" style="color: #cccccc; text-decoration: none;">Brooks &amp; KSHMR ft. TZAR - Voices (GATZ Remix) | Remix Contest</a></div>
+       Gaël lui est un DJ renommé connu sous le nom de GATZ</div>
       <div class="tab-pane fade" id="list-robin" role="tabpanel" aria-labelledby="list-robin-list">Robin... Bah robin lui il fait de l'escalade</div>
       <div class="tab-pane fade show active" id="list-a-propos" role="tabpanel" aria-labelledby="list-a-propos-list">Nous sommes 3 étudiants à Polytech Nancy ayant un rapport très fort avec la musique. </div>
     </div>

@@ -41,11 +41,12 @@ public class Controller_account extends HttpServlet {
 		        
 		        //Utilisation et redirectiondes identifiants dans l'autre Servlet
 		        if(connexionAccount.connectAccount(request)) {
-		        getServletContext().getRequestDispatcher("/rock.jsp").forward(request, response);
-		        }
+		        getServletContext().getRequestDispatcher("/accueil.jsp").forward(request, response);
 		        }else{
 		            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		            }
+				}
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				
 	}
 

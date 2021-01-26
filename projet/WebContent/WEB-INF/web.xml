@@ -25,7 +25,7 @@
   </servlet>
   <servlet-mapping>
   <servlet-name>next</servlet-name>
-  <url-pattern>/accueil</url-pattern>
+  <url-pattern>/home</url-pattern>
   </servlet-mapping>
   
   </web-app>

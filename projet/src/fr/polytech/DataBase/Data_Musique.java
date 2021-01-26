@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
 import fr.polytech.musique.Musique;
 
@@ -100,7 +99,8 @@ public class Data_Musique {
 		this.seConnecter();
 		//faille d'injection SQL
 		try {
-			PreparedStatement preparedStatement =this.connection.prepareStatement("INSERT INTO `musiques`(`Genre`, `Artiste`, `Annee`, `Identifiant`) VALUES (?,?,?,?);");
+			PreparedStatement preparedStatement =this.connection.prepareStatement("INSERT INTO `musiques`(`Genre`, `Artiste`, `Annee`, "
+					+ "`Identifiant`) VALUES (?,?,?,?);");
 			preparedStatement.setString(1, musique.getGenre());
 			preparedStatement.setString(2, musique.getArtiste());
 			preparedStatement.setInt(3, musique.getAnnee());
@@ -114,13 +114,15 @@ public class Data_Musique {
 		}
 		
 	}
-	/*public void modifierUnEtudiant (Etudiant etudiant) {
+	public void modifierUneMusique (Musique musique) {
 		this.seConnecter();
 		try {
-			PreparedStatement preparedStatement = this.connection.prepareStatement("UPDATE `etudiant` SET `nom`=?,`prenom`=? WHERE identifiant=? ;");
-			preparedStatement.setString(1,etudiant.getNom());
-			preparedStatement.setString(2,etudiant.getPrenom());
-			preparedStatement.setInt(3,etudiant.getNumero());
+			PreparedStatement preparedStatement = this.connection.prepareStatement("UPDATE `musiques` SET `Genre`=?,`Artiste`=?,"
+					+ "`Annee`=? WHERE Identifiant=?");
+			preparedStatement.setString(1, musique.getGenre());
+			preparedStatement.setString(2, musique.getArtiste());
+			preparedStatement.setInt(3, musique.getAnnee());
+			preparedStatement.setInt(4, musique.getIdentifiant());
 			
 			preparedStatement.executeUpdate();
 			
@@ -130,11 +132,11 @@ public class Data_Musique {
 			e.printStackTrace();
 		}
 	}
-	public void supprimerUnEtudiant (Etudiant etudiant) {
+	public void supprimerUneMusique (Musique musique) {
 		this.seConnecter();
 		try {
-			PreparedStatement preparedStatement = this.connection.prepareStatement("DELETE FROM `etudiant` WHERE identifiant = ? ;");
-			preparedStatement.setInt(1,etudiant.getNumero());			
+			PreparedStatement preparedStatement = this.connection.prepareStatement("DELETE FROM `musiques` WHERE Identifiant = ? ;");
+			preparedStatement.setInt(1,musique.getIdentifiant());			
 			
 			preparedStatement.executeUpdate();
 			
@@ -146,18 +148,5 @@ public class Data_Musique {
 		}
 		
 	}
-	public void rechercheEtudiants(Etudiant etudiant) {
-		try {
-			PreparedStatement preparedStatement =this.connection.prepareStatement("SELECT * FROM `etudiant` WHERE nom LIKE ?% or prenom LIKE ?% or identifiant like ?");
-			preparedStatement.setString(1,etudiant.getNom());
-			preparedStatement.setString(2,etudiant.getPrenom());
-			preparedStatement.setInt(3,etudiant.getNumero());
-			
-			preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}*/
+	
 }
